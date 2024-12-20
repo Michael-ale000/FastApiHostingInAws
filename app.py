@@ -26,7 +26,7 @@ EMAIL_PASS = os.getenv("EMAIL_PASS") or "zelb oqav jcrw mruq"
 SUPABASE_URL = os.getenv('SUPABASE_URL')
 SUPABASE_API_KEY = os.getenv('SUPABASE_API_KEY')
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_API_KEY)
-
+port = int(os.getenv("PORT", 8000))
 
 model_path = "Michael444/DistilbertModel"  # Path to the saved model
 loaded_model = TFDistilBertForSequenceClassification.from_pretrained(model_path)
@@ -319,3 +319,8 @@ async def send_replies_endpoint():
         raise HTTPException(status_code=500, detail=str(e))
 
  
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, port=port)
