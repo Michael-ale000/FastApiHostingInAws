@@ -321,6 +321,3 @@ async def send_replies_endpoint():
  
 
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, port=port)
