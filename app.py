@@ -59,7 +59,7 @@ def save_email_to_db(email_data):
         'content': email_data['content'],
         'arrivedat': email_data['arrived_at'],
         'date': email_data['date'],
-        'is_important': int(email['is_important']),
+        'is_important': int(email_data['is_important']),
         'status': 0,
     }
 
